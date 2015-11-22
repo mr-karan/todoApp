@@ -17,8 +17,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".fragments.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/title_activity_main" >
+        </activity>
+        <activity
+            android:name=".NewNote"
+            android:label="@string/title_activity_new_note" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.dhiraj.todo.MainActivity" />
         </activity>
     </application>
 

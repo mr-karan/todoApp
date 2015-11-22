@@ -1,5 +1,6 @@
 package com.example.dhiraj.todo.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dhiraj.todo.MainActivity;
 import com.example.dhiraj.todo.R;
 
 public class LoginFragment extends android.support.v4.app.Fragment {
@@ -47,6 +49,10 @@ public class LoginFragment extends android.support.v4.app.Fragment {
                 if(res)
                     //set your check for Credentials here!!
                     Toast.makeText(getActivity(),"Valid Format",Toast.LENGTH_SHORT).show();
+                    if(emailId.getText().toString().equals("dhiraj") && password.getText().toString().equals("qwerty")){
+                        Intent intent = new Intent(getActivity(), MainActivity.class);
+                        startActivity(intent);
+                    }
                 else
                     Toast.makeText(getActivity(), "Invalid Format", Toast.LENGTH_SHORT).show();
             }
