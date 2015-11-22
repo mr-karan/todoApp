@@ -50,9 +50,10 @@ public class MainActivity extends AppCompatActivity {
 
         //working with objects
         RestAdapter adapter  = new RestAdapter(getBaseContext(),"http://tagdoapi.herokuapp.com/api");
-        ModelRepository repo;
+        TodoRepository repo;
         repo = adapter.createRepository(TodoRepository.class);
-        repo.findAll(new ListCallback<Todo>() {
+        //repo.findAll(new ListCallback<Todo>() {
+        repo.filter(43,new ListCallback<Todo>() {
             @Override
             public void onSuccess(List<Todo> objects) {
                 for(Todo object : objects){

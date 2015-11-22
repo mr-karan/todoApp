@@ -14,6 +14,8 @@ import com.google.common.collect.ImmutableMap;
 import com.strongloop.android.loopback.RestAdapter;
 import com.strongloop.android.loopback.callbacks.VoidCallback;
 
+import java.math.BigInteger;
+
 public class NewNote extends AppCompatActivity {
     Toolbar toolbar;
     EditText todo;
@@ -48,8 +50,7 @@ public class NewNote extends AppCompatActivity {
                     Toast.makeText(getBaseContext(),"Empty todo discarded",Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    object =repository.createObject(ImmutableMap.of("content", todo.getText().toString()));
-                    object.uID = 43;
+                    object =repository.createObject(ImmutableMap.of("content", todo.getText().toString(),"uID",new BigInteger("43")));
                     object.save(new VoidCallback() {
                         @Override
                         public void onSuccess() {
