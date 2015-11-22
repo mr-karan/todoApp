@@ -5,16 +5,26 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <android.support.v7.widget.Toolbar
-    android:id="@+id/toolbarMain"
-    android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize"
-    android:background="?attr/colorPrimary"
-    app:layout_scrollFlags="scroll|enterAlways"
-    app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    </android.support.v7.widget.Toolbar>
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbarMain"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        </android.support.v7.widget.Toolbar>
 
+        <it.gmariotti.cardslib.library.view.CardListView
+            android:layout_below="@+id/toolbarMain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/myList"/>
+
+    </RelativeLayout>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/addFAB"
@@ -23,6 +33,7 @@
         android:layout_gravity="bottom|end"
         android:src="@drawable/ic_add"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        />
 
-</android.support.design.widget.CoordinatorLayout><!-- From: file:/home/akhil/IDE/studioProjects/todoApp/app/src/main/res/layout/activity_main.xml -->
+</android.support.design.widget.CoordinatorLayout><!-- From: file:/home/dhiraj/AndroidStudioProjects/ToDo/app/src/main/res/layout/activity_main.xml -->
