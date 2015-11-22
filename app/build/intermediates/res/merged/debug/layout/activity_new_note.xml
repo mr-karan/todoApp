@@ -15,12 +15,15 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <TextView
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:id="@+id/content"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/app_name"
+        android:layout_marginTop="80dp" />
+
 
 </RelativeLayout>
-<!-- From: file:/home/akhil/IDE/studioProjects/todoApp/app/src/main/res/layout/activity_new_note.xml -->
+<!-- From: file:/home/dhiraj/AndroidStudioProjects/ToDo/app/src/main/res/layout/activity_new_note.xml -->

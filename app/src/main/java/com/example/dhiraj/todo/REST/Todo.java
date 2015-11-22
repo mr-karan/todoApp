@@ -7,16 +7,10 @@ import com.strongloop.android.loopback.Model;
  */
 public class Todo extends Model {
     String content;
-    int id;
-    int uID;
+    public int uID;
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-
-    public int getid() {
-        return id;
     }
 
     public String getContent() {
@@ -24,7 +18,7 @@ public class Todo extends Model {
     }
 
     public Todo() {
-        content = new String("This is your todo. Click to edit");
+        content = "This is your todo. Click to edit";
         uID = 55;
     }
 
