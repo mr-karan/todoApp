@@ -22,4 +22,14 @@ public class Todo extends Model {
     public String getContent() {
         return content;
     }
+
+    public Todo() {
+        content = new String("This is your todo. Click to edit");
+        uID = 55;
+    }
+
+    public Todo(String todo,int uID) {
+        this.content = todo;
+        this.uID = uID;
+    }
 }
