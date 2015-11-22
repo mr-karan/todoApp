@@ -6,9 +6,9 @@ import com.strongloop.android.loopback.Model;
  * Created by dhiraj on 22/11/15.
  */
 public class Todo extends Model {
-    private String content;
-    private int id;
-    private int uID;
+    String content;
+    int id;
+    int uID;
 
     public void setContent(String content) {
         this.content = content;

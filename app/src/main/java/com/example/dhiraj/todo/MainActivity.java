@@ -11,8 +11,12 @@ import android.widget.Toast;
 import com.example.dhiraj.todo.REST.Strongloopclient;
 import com.example.dhiraj.todo.REST.Todo;
 import com.example.dhiraj.todo.REST.TodoRepository;
+import com.google.common.collect.ImmutableMap;
+import com.strongloop.android.loopback.Model;
+import com.strongloop.android.loopback.ModelRepository;
 import com.strongloop.android.loopback.RestAdapter;
 import com.strongloop.android.loopback.callbacks.ListCallback;
+import com.strongloop.android.loopback.callbacks.ObjectCallback;
 
 import java.util.List;
 
@@ -20,26 +24,31 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     FloatingActionButton fab;
     List<Todo> allTodos;
-    Strongloopclient strc = new Strongloopclient(getBaseContext());
-    RestAdapter adapter = strc.getLoopBackAdapter("todos","GET");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         try {
-            TodoRepository repo = adapter.createRepository(TodoRepository.class);
-            repo.findAll(new ListCallback<Todo>() {
-                @Override
-                public void onSuccess(List<Todo> objects) {
-                    System.out.println(objects);
-                    Toast.makeText(getBaseContext(), "Worked", Toast.LENGTH_SHORT).show();
-                }
+            RestAdapter adapter  = new RestAdapter(getBaseContext(),"http://tagdoapi.herokuapp.com/api");
+            ModelRepository repo;
+            try {
+                repo = adapter.createRepository(TodoRepository.class);
+                repo.findAll(new ListCallback() {
+                    @Override
+                    public void onSuccess(List objects) {
 
-                @Override
-                public void onError(Throwable t) {
+                    }
 
-                }
-            });
+                    @Override
+                    public void onError(Throwable t) {
+
+                    }
+                });
+            }
+            catch (Exception e) {
+                Toast.makeText(getBaseContext(),"Repo fail",Toast.LENGTH_SHORT).show();
+            }
         }
         catch (Exception e) {
             Toast.makeText(getBaseContext(),"Adapter fail",Toast.LENGTH_SHORT).show();

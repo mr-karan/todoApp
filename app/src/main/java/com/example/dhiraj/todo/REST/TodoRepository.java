@@ -8,6 +8,6 @@ import com.strongloop.android.loopback.ModelRepository;
 public class TodoRepository extends ModelRepository<Todo>{
 
     public TodoRepository() {
-        super("Todo",Todo.class);
+        super("Todo","Todos",Todo.class);
     }
 }
