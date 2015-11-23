@@ -5,34 +5,45 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
-
-import com.google.common.collect.ImmutableMap;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
-import com.strongloop.android.loopback.RestAdapter;
-import com.strongloop.android.loopback.callbacks.VoidCallback;
 
-import java.math.BigInteger;
+import java.util.Calendar;
 
 public class NewNote extends AppCompatActivity {
     Toolbar toolbar;
     EditText todo;
-
-
+    Calendar calendar;
+    int hours,mins;
+    TextView edit;
+    Spinner priority;
+    private String [] typeString = { "High" , "Medium" , "Low" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_note);
-
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         todo = (EditText) findViewById(R.id.content);
+        calendar = Calendar.getInstance();
+        hours = calendar.get(Calendar.HOUR_OF_DAY);
+        mins = calendar.get(Calendar.MINUTE);
+        edit = (TextView) findViewById(R.id.editTime);
+        edit.setText("Edited "+ hours + ":" + mins);
+        priority = (Spinner) findViewById(R.id.spinner);
+        ArrayAdapter<String> adapterType = new ArrayAdapter<>(getBaseContext(),android.R.layout.simple_spinner_dropdown_item,typeString);
+        adapterType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        priority.setAdapter(adapterType);
     }
+
 
 
     @Override
