@@ -16,8 +16,12 @@ import com.example.dhiraj.todo.fragments.RegisterFragment;
 import com.parse.Parse;
 import com.parse.ParseACL;
 import com.parse.ParseAnonymousUtils;
+import com.parse.ParseException;
+import com.parse.ParseInstallation;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
+import com.parse.PushService;
+import com.parse.SaveCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,10 +32,12 @@ public class LoginActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onCreate(Bundle savedInstanceState) {
         Parse.enableLocalDatastore(this);
         Parse.initialize(this, "bmGuNCAVpGCmtUY5GOORTxaatm2FmSZIYdnIxdsY", "H74rhguOsO1AIZ0ubpLpEfZFSQHjKUVFWZSKNRBJ");
+        ParseInstallation.getCurrentInstallation().saveInBackground();
+        super.onCreate(savedInstanceState);
+
 
         setContentView(R.layout.activity_login);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -48,6 +54,7 @@ public class LoginActivity extends AppCompatActivity {
         if (currentUser != null) {
             // do stuff with the user
             Intent intent = new Intent(getBaseContext(),MainActivity.class);
+
             startActivity(intent);
 
         } else {
