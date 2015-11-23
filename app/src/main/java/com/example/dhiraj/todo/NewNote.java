@@ -62,7 +62,7 @@ public class NewNote extends AppCompatActivity {
                     final ParseUser currentUser = ParseUser.getCurrentUser();
                     ParseObject todoObject = new ParseObject("Todo");
                     todoObject.put("content",todo.getText().toString());
-                    todoObject.put("Priority","HIGH");
+                    todoObject.put("Priority",priority.getSelectedItem().toString());
                     todoObject.put("author",currentUser);
                     todoObject.saveEventually();
                     Toast.makeText(getBaseContext(),"Todo saved",Toast.LENGTH_SHORT).show();

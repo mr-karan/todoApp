@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                     for (ParseObject object : objects) {
                         map.put(object.getObjectId(), object);
                         card = new Card(MainActivity.this);
-                        card.setTitle(object.getString("content"));
+                        card.setTitle(object.getString("content") + " With " + object.getString("Priority")+" Priority");
                         card.setId(object.getObjectId());
                         card.setClickable(true);
                         card.setOnClickListener(new Card.OnCardClickListener() {
