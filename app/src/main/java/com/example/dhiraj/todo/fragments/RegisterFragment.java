@@ -1,5 +1,6 @@
 package com.example.dhiraj.todo.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +10,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dhiraj.todo.MainActivity;
 import com.example.dhiraj.todo.R;
+import com.parse.ParseException;
+import com.parse.ParseUser;
+import com.parse.SignUpCallback;
 
 public class RegisterFragment extends android.support.v4.app.Fragment {
     EditText name,email,password;
@@ -42,12 +47,32 @@ public class RegisterFragment extends android.support.v4.app.Fragment {
 
             @Override
             public void onClick(View v) {
-                res = validateInput();
-                if(res)
-                    //push the values to the server here
-                    Toast.makeText(getActivity(), "Valid Format", Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(getActivity(), "Invalid Format", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(),"Regist",Toast.LENGTH_SHORT).show();
+                ParseUser user = new ParseUser();
+                user.setUsername(name.getText().toString());
+                user.setPassword(password.getText().toString());
+                user.setEmail(email.getText().toString());
+
+// other fields can be set just like with ParseObject
+                //user.put();
+                ParseUser currentUser = ParseUser.getCurrentUser();
+                currentUser.logOut();
+                user.signUpInBackground(new SignUpCallback() {
+                    public void done(ParseException e) {
+                        if (e == null) {
+                            // Hooray! Let them use the app now.
+                            Toast.makeText(getActivity(),"Registration Succesful",Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getActivity(), MainActivity.class);
+                            startActivity(intent);
+
+                        } else {
+                            Toast.makeText(getActivity(),e.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
+                            // Sign up didn't succeed. Look at the ParseException
+                            // to figure out what went wrong
+                            //Toast
+                        }
+                    }
+                });
             }
         });
         return view;

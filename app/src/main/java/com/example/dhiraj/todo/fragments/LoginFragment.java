@@ -12,6 +12,9 @@ import android.widget.Toast;
 
 import com.example.dhiraj.todo.MainActivity;
 import com.example.dhiraj.todo.R;
+import com.parse.LogInCallback;
+import com.parse.ParseException;
+import com.parse.ParseUser;
 
 public class LoginFragment extends android.support.v4.app.Fragment {
     EditText emailId,password;
@@ -44,17 +47,24 @@ public class LoginFragment extends android.support.v4.app.Fragment {
             boolean res;
             @Override
             public void onClick(View v) {
+                Toast.makeText(getActivity(),"Logging in",Toast.LENGTH_SHORT).show();
                 //calling the validate input before actually checking for Credentials
-                res = validateInput();
-                if(res)
-                    //set your check for Credentials here!!
-                    Toast.makeText(getActivity(),"Valid Format",Toast.LENGTH_SHORT).show();
-                    if(emailId.getText().toString().equals("dhiraj") && password.getText().toString().equals("qwerty")){
-                        Intent intent = new Intent(getActivity(), MainActivity.class);
-                        startActivity(intent);
+                ParseUser currentUser = ParseUser.getCurrentUser();
+                currentUser.logOut();
+                ParseUser.logInInBackground(emailId.getText().toString(), password.getText().toString(), new LogInCallback() {
+                    public void done(ParseUser user, ParseException e) {
+                        if (user != null) {
+                            Toast.makeText(getActivity(),"Logged in",Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getActivity(), MainActivity.class);
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(getActivity(),e.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
+                            // Signup failed. Look at the ParseException to see what happened.
+                            //Toast
+                        }
                     }
-                else
-                    Toast.makeText(getActivity(), "Invalid Format", Toast.LENGTH_SHORT).show();
+                });
+
             }
         });
 

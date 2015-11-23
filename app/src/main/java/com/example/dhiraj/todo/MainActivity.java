@@ -8,9 +8,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.dhiraj.todo.REST.Todo;
-import com.example.dhiraj.todo.REST.TodoRepository;
-import com.strongloop.android.loopback.ModelRepository;
+
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
 import com.strongloop.android.loopback.RestAdapter;
 import com.strongloop.android.loopback.callbacks.ListCallback;
 import com.strongloop.android.loopback.callbacks.VoidCallback;
@@ -32,13 +35,14 @@ public class MainActivity extends AppCompatActivity {
     Card card;
     CardHeader header;
     CardArrayAdapter myArrayAdapter;
+    HashMap<String,ParseObject> map = new HashMap();
     CardListView listView;
-    HashMap<Integer,Todo> map = new HashMap();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        final ParseUser currentUser = ParseUser.getCurrentUser();
         //working with the inflation
         toolbar = (Toolbar) findViewById(R.id.toolbarMain);
         setSupportActionBar(toolbar);
@@ -47,58 +51,45 @@ public class MainActivity extends AppCompatActivity {
 
         //working with the cards
         cards = new ArrayList<>();
-
-        //working with objects
-        RestAdapter adapter  = new RestAdapter(getBaseContext(),"http://tagdoapi.herokuapp.com/api");
-        TodoRepository repo;
-        repo = adapter.createRepository(TodoRepository.class);
-        //repo.findAll(new ListCallback<Todo>() {
-        repo.filter(43,new ListCallback<Todo>() {
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Todo");
+        query.whereEqualTo("author",currentUser);
+        query.findInBackground(new FindCallback<ParseObject>() {
             @Override
-            public void onSuccess(List<Todo> objects) {
-                for(Todo object : objects){
-                    map.put((Integer) object.getId(),object);
-                    card = new Card(MainActivity.this);
-                    card.setTitle(object.getContent());
-                    card.setId(Integer.toString((Integer) object.getId()));
-                    card.setClickable(true);
-                    card.setOnClickListener(new Card.OnCardClickListener() {
-                        @Override
-                        public void onClick(Card card, View view) {
-                            Toast.makeText(getBaseContext(), card.getId(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                    card.setSwipeable(true);
-                    card.setOnSwipeListener(new Card.OnSwipeListener() {
-                        @Override
-                        public void onSwipe(Card card) {
-                            map.get(Integer.parseInt(card.getId())).destroy(new VoidCallback() {
-                                @Override
-                                public void onSuccess() {
-                                    Toast.makeText(getBaseContext(), "Why you kiill me!", Toast.LENGTH_SHORT).show();
-                                }
-
-                                @Override
-                                public void onError(Throwable t) {
-                                    Toast.makeText(getBaseContext(), "I am not going anywhere fucker", Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                        }
-                    });
-                    header = new CardHeader(MainActivity.this);
-                    cards.add(card);
+            public void done(List<ParseObject> objects, ParseException e) {
+                if (e == null) {
+                    for (ParseObject object : objects) {
+                        map.put(object.getObjectId(), object);
+                        card = new Card(MainActivity.this);
+                        card.setTitle(object.getString("content"));
+                        card.setId(object.getObjectId());
+                        card.setClickable(true);
+                        card.setOnClickListener(new Card.OnCardClickListener() {
+                            @Override
+                            public void onClick(Card card, View view) {
+                                Toast.makeText(getBaseContext(), card.getId(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        card.setSwipeable(true);
+                        card.setOnSwipeListener(new Card.OnSwipeListener() {
+                            @Override
+                            public void onSwipe(Card card) {
+                                map.get(card.getId()).deleteEventually();
+                                Toast.makeText(getBaseContext(), "Why you kill me?", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        header = new CardHeader(MainActivity.this);
+                        cards.add(card);
+                    }
+                    myArrayAdapter = new CardArrayAdapter(MainActivity.this,cards);
+                    listView = (CardListView) findViewById(R.id.myList);
+                    if(listView != null)
+                        listView.setAdapter(myArrayAdapter);
+                } else {
+                    Toast.makeText(getBaseContext(), "Server get error", Toast.LENGTH_SHORT).show();
                 }
-
-                myArrayAdapter = new CardArrayAdapter(MainActivity.this,cards);
-                listView = (CardListView) findViewById(R.id.myList);
-                if(listView != null)
-                    listView.setAdapter(myArrayAdapter);
-            }
-            @Override
-            public void onError(Throwable t) {
-
             }
         });
+
 
 
 
@@ -109,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 //create a bundle of all the contents in the note and pass it with the intent
                 Intent intent = new Intent(getBaseContext(), NewNote.class);
                 startActivity(intent);
+
             }
         });
     }

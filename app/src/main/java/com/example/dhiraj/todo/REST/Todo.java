@@ -1,31 +1,47 @@
-package com.example.dhiraj.todo.REST;
+import com.parse.ParseClassName;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
-import com.strongloop.android.loopback.Model;
+import java.util.UUID;
 
-import java.math.BigInteger;
+@ParseClassName("Todo")
+public class Todo extends ParseObject {
 
-/**
- * Created by dhiraj on 22/11/15.
- */
-public class Todo extends Model {
-    String content;
-    public BigInteger uID;
-
-    public void setContent(String content) {
-        this.content = content;
+    public String getTitle() {
+        return getString("title");
     }
 
-    public String getContent() {
-        return content;
+    public void setTitle(String title) {
+        put("title", title);
     }
 
-    public Todo() {
-        content = "This is your todo. Click to edit";
-        uID = new BigInteger("55");
+    public ParseUser getAuthor() {
+        return getParseUser("author");
     }
 
-    public Todo(String todo,int uID) {
-        this.content = todo;
-        this.uID = new BigInteger(Integer.toString(uID));
+    public void setAuthor(ParseUser currentUser) {
+        put("author", currentUser);
+    }
+
+    public boolean isDraft() {
+        return getBoolean("isDraft");
+    }
+
+    public void setDraft(boolean isDraft) {
+        put("isDraft", isDraft);
+    }
+
+    public void setUuidString() {
+        UUID uuid = UUID.randomUUID();
+        put("uuid", uuid.toString());
+    }
+
+    public String getUuidString() {
+        return getString("uuid");
+    }
+
+    public static ParseQuery<Todo> getQuery() {
+        return ParseQuery.getQuery(Todo.class);
     }
 }
