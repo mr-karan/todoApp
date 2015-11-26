@@ -1,5 +1,6 @@
 package com.example.dhiraj.todo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
@@ -11,8 +12,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import java.util.Calendar;
 
@@ -24,7 +27,7 @@ public class NewNote extends AppCompatActivity {
     TextView edit;
     Spinner priority;
     String tempEdited;
-    private String [] typeString = { "High" , "Medium" , "Low" };
+    private String [] typeString = { "HIGH" , "MEDIUM" , "LOW" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,7 +97,13 @@ public class NewNote extends AppCompatActivity {
             todoObject.put("content",todo.getText().toString());
             todoObject.put("Priority",priority.getSelectedItem().toString());
             todoObject.put("author",currentUser);
-            todoObject.saveEventually();
+            todoObject.saveInBackground(new SaveCallback() {
+                @Override
+                public void done(ParseException e) {
+                    Intent intent = new Intent(getBaseContext(),MainActivity.class);
+                    startActivity(intent);
+                }
+            });
             Toast.makeText(getBaseContext(),"Todo saved",Toast.LENGTH_SHORT).show();
         }
     }

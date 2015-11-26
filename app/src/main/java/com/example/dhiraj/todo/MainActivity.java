@@ -132,7 +132,10 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         switch (item.getItemId()) {
             case MENU_LOGOUT:
-                Toast.makeText(getBaseContext(),"Logout clicked",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(),"fuck off",Toast.LENGTH_SHORT).show();
+                ParseUser.logOut();
+                Intent intent = new Intent(getBaseContext(),LoginActivity.class);
+                startActivity(intent);
                 break;
         }
         return false;
