@@ -5,19 +5,16 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-
 import com.parse.FindCallback;
 import com.parse.ParseException;
-import com.parse.ParseInstallation;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
-import com.strongloop.android.loopback.RestAdapter;
-import com.strongloop.android.loopback.callbacks.ListCallback;
-import com.strongloop.android.loopback.callbacks.VoidCallback;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,19 +28,21 @@ import it.gmariotti.cardslib.library.view.CardListView;
 public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     FloatingActionButton fab;
-
     ArrayList<Card> cards;
     Card card;
     CardHeader header;
     CardArrayAdapter myArrayAdapter;
     HashMap<String,ParseObject> map = new HashMap();
     CardListView listView;
+    private static final int MENU_LOGOUT = Menu.FIRST;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final ParseUser currentUser = ParseUser.getCurrentUser();
+
+        listView.invalidateViews();
+
         //working with the inflation
         toolbar = (Toolbar) findViewById(R.id.toolbarMain);
         setSupportActionBar(toolbar);
@@ -52,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
         //working with the cards
         cards = new ArrayList<>();
+        final ParseUser currentUser = ParseUser.getCurrentUser();
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Todo");
         query.whereEqualTo("author",currentUser);
         query.findInBackground(new FindCallback<ParseObject>() {
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                     for (ParseObject object : objects) {
                         map.put(object.getObjectId(), object);
                         card = new Card(MainActivity.this);
-                        card.setTitle(object.getString("content") + " With " + object.getString("Priority")+" Priority");
+                        card.setTitle(object.getString("content") + " With " + object.getString("Priority") + " Priority");
                         card.setId(object.getObjectId());
                         card.setClickable(true);
                         card.setOnClickListener(new Card.OnCardClickListener() {
@@ -81,18 +81,15 @@ public class MainActivity extends AppCompatActivity {
                         header = new CardHeader(MainActivity.this);
                         cards.add(card);
                     }
-                    myArrayAdapter = new CardArrayAdapter(MainActivity.this,cards);
+                    myArrayAdapter = new CardArrayAdapter(MainActivity.this, cards);
                     listView = (CardListView) findViewById(R.id.myList);
-                    if(listView != null)
+                    if (listView != null)
                         listView.setAdapter(myArrayAdapter);
                 } else {
-                    Toast.makeText(getBaseContext(), "Server get error", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "Server \"get\" error", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
-
-
 
         //FAB onclick listener
         fab.setOnClickListener(new View.OnClickListener() {
@@ -104,6 +101,45 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        listView.invalidateViews();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        listView.invalidateViews();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        menu.add(0, MENU_LOGOUT, Menu.NONE, "Logout");
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        super.onOptionsItemSelected(item);
+
+        //noinspection SimplifiableIfStatement
+        switch (item.getItemId()) {
+            case MENU_LOGOUT:
+                Toast.makeText(getBaseContext(),"Logout Pressed",Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return false;
     }
 
 }

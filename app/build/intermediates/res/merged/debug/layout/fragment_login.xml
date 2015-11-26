@@ -66,7 +66,17 @@
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_marginTop="20dp"
+        android:text="Forgot Password"
+        android:clickable="true"
+        android:id="@+id/forgotPassword"
+        android:layout_gravity="center_horizontal" />
+
 </LinearLayout>
 
 
-<!-- From: file:/home/akhil/IDE/studioProjects/todoApp/app/src/main/res/layout/fragment_login.xml -->
+<!-- From: file:/home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/res/layout/fragment_login.xml -->

@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dhiraj.todo.ForgotPassword;
 import com.example.dhiraj.todo.MainActivity;
 import com.example.dhiraj.todo.R;
 import com.parse.LogInCallback;
@@ -19,7 +20,7 @@ import com.parse.ParseUser;
 public class LoginFragment extends android.support.v4.app.Fragment {
     EditText emailId,password;
     Button login;
-    TextView loginTitle;
+    TextView loginTitle,passwordForgot;
     public LoginFragment() {
         // Required empty public constructor
     }
@@ -39,12 +40,12 @@ public class LoginFragment extends android.support.v4.app.Fragment {
         emailId = (EditText) view.findViewById(R.id.email);
         password = (EditText) view.findViewById(R.id.password);
         login = (Button) view.findViewById(R.id.btn_login);
+        passwordForgot = (TextView) view.findViewById(R.id.forgotPassword);
         //done with the inflation for the fragment
 
         //creating the onClickListener for the button login
         login.setOnClickListener(new View.OnClickListener() {
             //local variable for validation
-            boolean res;
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(),"Logging in",Toast.LENGTH_SHORT).show();
@@ -59,23 +60,23 @@ public class LoginFragment extends android.support.v4.app.Fragment {
                             startActivity(intent);
                         } else {
                             Toast.makeText(getActivity(),e.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
-                            // Signup failed. Look at the ParseException to see what happened.
-                            //Toast
                         }
                     }
                 });
 
             }
         });
-
+        passwordForgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),ForgotPassword.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 
-    private boolean validateInput(){
-        boolean result = false;
-        if(emailId.getText().toString().trim() !="" && password.getText().toString().trim() != "") {
-            result = true;
-        }
-        return result;
-    }
+
+
+
 }

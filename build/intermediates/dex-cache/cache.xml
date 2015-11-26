@@ -2,102 +2,74 @@
 <items version="2" >
 
     <item
-        jar="/home/akhil/IDE/studioProjects/todoApp/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/22.1.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="22886d910315028a2b34b1ba068c265534ade87a">
-        <dex dex="/home/akhil/IDE/studioProjects/todoApp/app/build/intermediates/pre-dexed/debug/classes-90b495c375a08d546f0c86e2e523d1d6140e01f0.jar" />
-    </item>
-    <item
-        jar="/home/akhil/.gradle/caches/modules-2/files-2.1/com.strongloop/loopback-sdk-android/1.5.2/4cf5dc98942cd69ea4fc1302d1b93a575d28120f/loopback-sdk-android-1.5.2.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="4cf5dc98942cd69ea4fc1302d1b93a575d28120f">
-        <dex dex="/home/akhil/IDE/studioProjects/todoApp/app/build/intermediates/pre-dexed/debug/loopback-sdk-android-1.5.2-3a518846c1353b41291641c2f469a1ddda3c857d.jar" />
-    </item>
-    <item
-        jar="/home/akhil/.gradle/caches/modules-2/files-2.1/org.atteo/evo-inflector/1.2/80ff9507ae75b5d007d44e856dba6953ff856a69/evo-inflector-1.2.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="80ff9507ae75b5d007d44e856dba6953ff856a69">
-        <dex dex="/home/akhil/IDE/studioProjects/todoApp/app/build/intermediates/pre-dexed/debug/evo-inflector-1.2-dbfc958240616e394de84b70e0b2c4865f6c8ad9.jar" />
-    </item>
-    <item
-        jar="/home/akhil/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-applinks/1.3.0/bc535105332645408ef5f1380215cc954b842178/bolts-applinks-1.3.0.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="bc535105332645408ef5f1380215cc954b842178">
-        <dex dex="/home/akhil/IDE/studioProjects/todoApp/app/build/intermediates/pre-dexed/debug/bolts-applinks-1.3.0-366eb7fedbb2a24db42171ad91ee0a666bc65ef9.jar" />
-    </item>
-    <item
-        jar="/home/akhil/.gradle/caches/modules-2/files-2.1/com.parse/parse-android/1.11.0/6592129dec2caa8791d322c7e4b6b7a30e8eadae/parse-android-1.11.0.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="6592129dec2caa8791d322c7e4b6b7a30e8eadae">
-        <dex dex="/home/akhil/IDE/studioProjects/todoApp/app/build/intermediates/pre-dexed/debug/parse-android-1.11.0-a0fce3bcf8456e2d77388bfbacae37d70c634dc0.jar" />
-    </item>
-    <item
-        jar="/home/akhil/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/18.0/cce0823396aa693798f8882e64213b1772032b09/guava-18.0.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="cce0823396aa693798f8882e64213b1772032b09">
-        <dex dex="/home/akhil/IDE/studioProjects/todoApp/app/build/intermediates/pre-dexed/debug/guava-18.0-50e056bcab668d8ce47fbb25d7be640ce73c56c5.jar" />
-    </item>
-    <item
-        jar="/home/akhil/IDE/studioProjects/todoApp/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="8190861e323934dad89d5e6b830ea66878c11970">
-        <dex dex="/home/akhil/IDE/studioProjects/todoApp/app/build/intermediates/pre-dexed/debug/classes-62270ef29cd233fe9989106c924a5b44e7e1ca07.jar" />
-    </item>
-    <item
-        jar="/media/akhil/MyFiles/UbuntuHome/dev/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
+        jar="/media/dhiraj/Dhiraj/Backup/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
-        <dex dex="/home/akhil/IDE/studioProjects/todoApp/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1-6636324f1b6ba68d622363e394d7b9b32c4160e1.jar" />
+        <dex dex="/home/dhiraj/AndroidStudioProjects/todoApp/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1-15868c0c17d6258c52cfc08cd3f573880fa94791.jar" />
     </item>
     <item
-        jar="/home/akhil/IDE/studioProjects/todoApp/app/build/intermediates/exploded-aar/com.android.support/design/23.0.1/jars/classes.jar"
+        jar="/home/dhiraj/.gradle/caches/modules-2/files-2.1/com.parse/parse-android/1.11.0/6592129dec2caa8791d322c7e4b6b7a30e8eadae/parse-android-1.11.0.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="e5c61a3169221a89654ffcaaed47bba51cf071ad">
-        <dex dex="/home/akhil/IDE/studioProjects/todoApp/app/build/intermediates/pre-dexed/debug/classes-dfc9ad59eccf18cffa7340b0aeb9134e30356695.jar" />
+        sha1="6592129dec2caa8791d322c7e4b6b7a30e8eadae">
+        <dex dex="/home/dhiraj/AndroidStudioProjects/todoApp/app/build/intermediates/pre-dexed/debug/parse-android-1.11.0-efb1b93648c03bf1766eb1fce5bd19ee438c475f.jar" />
     </item>
     <item
-        jar="/home/akhil/IDE/studioProjects/todoApp/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
-        <dex dex="/home/akhil/IDE/studioProjects/todoApp/app/build/intermediates/pre-dexed/debug/classes-b5a7a0c006c3ae2b99e5bc1f3a6b20e5a7103b61.jar" />
-    </item>
-    <item
-        jar="/home/akhil/IDE/studioProjects/todoApp/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
+        jar="/home/dhiraj/AndroidStudioProjects/todoApp/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="/home/akhil/IDE/studioProjects/todoApp/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1-5b821aecc3e0d0439fe0559ab2cd74705ca1c958.jar" />
+        <dex dex="/home/dhiraj/AndroidStudioProjects/todoApp/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1-708ea0836ec6bcaf902d82c2cd2d9b709744b394.jar" />
     </item>
     <item
-        jar="/home/akhil/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.6/a845a88238be0b5be9d238652c1bc0605ef91f52/android-async-http-1.4.6.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="a845a88238be0b5be9d238652c1bc0605ef91f52">
-        <dex dex="/home/akhil/IDE/studioProjects/todoApp/app/build/intermediates/pre-dexed/debug/android-async-http-1.4.6-c0eab3309da6439fd83f2f1c3f831daf0b4e13aa.jar" />
-    </item>
-    <item
-        jar="/home/akhil/IDE/studioProjects/todoApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="/home/akhil/IDE/studioProjects/todoApp/app/build/intermediates/pre-dexed/debug/classes-d7989398c3d3e28c26e247c0dce56e96c4ef1863.jar" />
-    </item>
-    <item
-        jar="/home/akhil/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.3.0/8a62fd16fcc1c06f284fc98e6cbded2a5af1dd4c/bolts-tasks-1.3.0.jar"
+        jar="/home/dhiraj/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.3.0/8a62fd16fcc1c06f284fc98e6cbded2a5af1dd4c/bolts-tasks-1.3.0.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="8a62fd16fcc1c06f284fc98e6cbded2a5af1dd4c">
-        <dex dex="/home/akhil/IDE/studioProjects/todoApp/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.3.0-a0782c21470d73b71cfedc21c07f6ad0a72165a5.jar" />
+        <dex dex="/home/dhiraj/AndroidStudioProjects/todoApp/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.3.0-249ac87cc4b9530f3f7dcbfb11c12dea7e8878b9.jar" />
+    </item>
+    <item
+        jar="/home/dhiraj/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-applinks/1.3.0/bc535105332645408ef5f1380215cc954b842178/bolts-applinks-1.3.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="bc535105332645408ef5f1380215cc954b842178">
+        <dex dex="/home/dhiraj/AndroidStudioProjects/todoApp/app/build/intermediates/pre-dexed/debug/bolts-applinks-1.3.0-17a667bdcb418501e38b70bc1f7b2aff14cdb8cd.jar" />
+    </item>
+    <item
+        jar="/home/dhiraj/AndroidStudioProjects/todoApp/app/build/intermediates/exploded-aar/com.android.support/design/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e5c61a3169221a89654ffcaaed47bba51cf071ad">
+        <dex dex="/home/dhiraj/AndroidStudioProjects/todoApp/app/build/intermediates/pre-dexed/debug/classes-e6c51d1f7987f62475b39ff844e64499ca9f6c10.jar" />
+    </item>
+    <item
+        jar="/home/dhiraj/AndroidStudioProjects/todoApp/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="/home/dhiraj/AndroidStudioProjects/todoApp/app/build/intermediates/pre-dexed/debug/classes-68522c70ea49325bb6cc01e8f64b7946031b557e.jar" />
+    </item>
+    <item
+        jar="/home/dhiraj/AndroidStudioProjects/todoApp/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8190861e323934dad89d5e6b830ea66878c11970">
+        <dex dex="/home/dhiraj/AndroidStudioProjects/todoApp/app/build/intermediates/pre-dexed/debug/classes-d4730f6c744d513097e02c0ad7effb7514ddec31.jar" />
+    </item>
+    <item
+        jar="/home/dhiraj/AndroidStudioProjects/todoApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/home/dhiraj/AndroidStudioProjects/todoApp/app/build/intermediates/pre-dexed/debug/classes-7e96be7ac1966ee3b1959db7d5a0507b5a6d4546.jar" />
+    </item>
+    <item
+        jar="/home/dhiraj/AndroidStudioProjects/todoApp/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/22.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="22886d910315028a2b34b1ba068c265534ade87a">
+        <dex dex="/home/dhiraj/AndroidStudioProjects/todoApp/app/build/intermediates/pre-dexed/debug/classes-4d13a875aee5c43feb26dcfa118c36ede8ba78b6.jar" />
     </item>
 
 </items>

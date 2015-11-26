@@ -47,13 +47,12 @@ public class RegisterFragment extends android.support.v4.app.Fragment {
 
             @Override
             public void onClick(View v) {
-                //Toast.makeText(getActivity(),"Regist",Toast.LENGTH_SHORT).show();
                 ParseUser user = new ParseUser();
                 user.setUsername(name.getText().toString());
                 user.setPassword(password.getText().toString());
                 user.setEmail(email.getText().toString());
 
-// other fields can be set just like with ParseObject
+                // other fields can be set just like with ParseObject
                 //user.put();
                 ParseUser currentUser = ParseUser.getCurrentUser();
                 currentUser.logOut();
@@ -76,12 +75,5 @@ public class RegisterFragment extends android.support.v4.app.Fragment {
             }
         });
         return view;
-    }
-
-    private boolean validateInput(){
-        boolean result = false;
-        if(email.getText().toString().trim() !="" && password.getText().toString().trim() != "" && name.getText().toString().trim() != "")
-            result = true;
-        return result;
     }
 }
