@@ -66,6 +66,9 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onClick(Card card, View view) {
                                 Toast.makeText(getBaseContext(), card.getId(), Toast.LENGTH_SHORT).show();
+                                Intent i = new Intent(getBaseContext(), NewNote.class);
+                                i.putExtra("ID",map.get(card.getId()).getObjectId());
+                                startActivity(i);
                             }
                         });
                         card.setSwipeable(true);
@@ -132,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         switch (item.getItemId()) {
             case MENU_LOGOUT:
-                Toast.makeText(getBaseContext(),"fuck off",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(),"Logged out.",Toast.LENGTH_SHORT).show();
                 ParseUser.logOut();
                 Intent intent = new Intent(getBaseContext(),LoginActivity.class);
                 startActivity(intent);

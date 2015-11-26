@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
@@ -28,6 +29,8 @@ public class NewNote extends AppCompatActivity {
     Spinner priority;
     String tempEdited;
     private String [] typeString = { "HIGH" , "MEDIUM" , "LOW" };
+    String todoId;
+    ParseObject todoOb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +67,16 @@ public class NewNote extends AppCompatActivity {
         ArrayAdapter<String> adapterType = new ArrayAdapter<>(getBaseContext(),android.R.layout.simple_spinner_dropdown_item,typeString);
         adapterType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         priority.setAdapter(adapterType);
+        if (getIntent().hasExtra("ID")) {
+            todoId = getIntent().getExtras().getString("ID");
+            ParseQuery<ParseObject> query = ParseQuery.getQuery("Todo");
+            try {
+                todoOb=query.get(todoId);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            todo.setText(todoOb.getString("content"));
+        }
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -91,7 +104,7 @@ public class NewNote extends AppCompatActivity {
         if(t.equals("")){
             Toast.makeText(getBaseContext(),"Empty todo discarded",Toast.LENGTH_SHORT).show();
         }
-        else{
+        else if(todoId==null){
             final ParseUser currentUser = ParseUser.getCurrentUser();
             ParseObject todoObject = new ParseObject("Todo");
             todoObject.put("content",todo.getText().toString());
@@ -101,6 +114,18 @@ public class NewNote extends AppCompatActivity {
                 @Override
                 public void done(ParseException e) {
                     Intent intent = new Intent(getBaseContext(),MainActivity.class);
+                    startActivity(intent);
+                }
+            });
+            Toast.makeText(getBaseContext(),"Todo saved",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            todoOb.put("content",todo.getText().toString());
+            todoOb.put("Priority",priority.getSelectedItem().toString());
+            todoOb.saveInBackground(new SaveCallback() {
+                @Override
+                public void done(ParseException e) {
+                    Intent intent = new Intent(getBaseContext(), MainActivity.class);
                     startActivity(intent);
                 }
             });
