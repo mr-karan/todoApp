@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     CardArrayAdapter myArrayAdapter;
     HashMap<String,ParseObject> map = new HashMap();
     CardListView listView;
+    private static final int MENU_LOGOUT = Menu.FIRST;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +46,10 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         fab = (FloatingActionButton) findViewById(R.id.addFAB);
-
         //working with the cards
         cards = new ArrayList<>();
         final ParseUser currentUser = ParseUser.getCurrentUser();
+
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Todo");
         query.whereEqualTo("author",currentUser);
         query.findInBackground(new FindCallback<ParseObject>() {
@@ -93,11 +96,20 @@ public class MainActivity extends AppCompatActivity {
                 //create a bundle of all the contents in the note and pass it with the intent
                 Intent intent = new Intent(getBaseContext(), NewNote.class);
                 startActivity(intent);
-
             }
         });
+
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        try{
+            listView.invalidateViews();
+        }catch (NullPointerException e){
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void onBackPressed() {
@@ -105,5 +117,23 @@ public class MainActivity extends AppCompatActivity {
         intent.addCategory(Intent.CATEGORY_HOME);
         startActivity(intent);
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        menu.add(0, MENU_LOGOUT, Menu.NONE, "Logout");
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        super.onOptionsItemSelected(item);
+
+        //noinspection SimplifiableIfStatement
+        switch (item.getItemId()) {
+            case MENU_LOGOUT:
+                Toast.makeText(getBaseContext(),"Logout clicked",Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return false;
+    }
 }
