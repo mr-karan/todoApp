@@ -78,8 +78,7 @@
         android:layout_height="wrap_content"
         android:text="Register"
         android:id="@+id/btn_register"
-        android:background="@color/primaryColor"
-        android:textColor="@color/accentColor"
+        android:background="@color/primaryColor"        android:textColor="#fff"
         android:layout_gravity="center_horizontal"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"/>

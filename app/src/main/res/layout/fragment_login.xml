@@ -61,7 +61,7 @@
         android:id="@+id/btn_login"
         android:layout_marginTop="50dp"
         android:background="@color/primaryColor"
-        android:textColor="@color/accentColor"
+        android:textColor="#fff"
         android:layout_gravity="center_horizontal"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"/>
@@ -72,6 +72,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_marginTop="20dp"
         android:text="Forgot Password"
+        android:textColor="@color/accentColor"
         android:clickable="true"
         android:id="@+id/forgotPassword"
         android:layout_gravity="center_horizontal" />
