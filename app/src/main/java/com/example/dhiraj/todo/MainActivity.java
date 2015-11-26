@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     CardArrayAdapter myArrayAdapter;
     HashMap<String,ParseObject> map = new HashMap();
     CardListView listView;
-    private static final int MENU_LOGOUT = Menu.FIRST;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,26 +119,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_HOME);
         startActivity(intent);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
-        menu.add(0, MENU_LOGOUT, Menu.NONE, "Logout");
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        super.onOptionsItemSelected(item);
-
-        //noinspection SimplifiableIfStatement
-        switch (item.getItemId()) {
-            case MENU_LOGOUT:
-                Toast.makeText(getBaseContext(),"Logout Pressed",Toast.LENGTH_SHORT).show();
-                break;
-        }
-        return false;
     }
 
 }

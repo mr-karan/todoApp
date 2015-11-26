@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:2:1-53:12
+ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:2:1-75:12
 	package
 		ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:3:5-38
 		INJECTED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml
@@ -54,7 +54,7 @@ ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManife
 	android:name
 		ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:20:22-83
 application
-ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:22:5-51:19
+ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:22:5-73:19
 MERGED from [com.android.support:appcompat-v7:23.0.1] /home/dhiraj/AndroidStudioProjects/todoApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:23.0.1] /home/dhiraj/AndroidStudioProjects/todoApp/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:23.0.1] /home/dhiraj/AndroidStudioProjects/todoApp/app/build/intermediates/exploded-aar/com.android.support/design/23.0.1/AndroidManifest.xml:22:5-20
@@ -106,10 +106,54 @@ ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManife
 		ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:45:17-69
 	android:name
 		ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:44:17-63
-activity#com.example.dhiraj.todo.ForgotPassword
-ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:49:9-50:20
+service#com.parse.PushService
+ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:48:9-57
 	android:name
-		ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:49:19-49
+		ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:48:18-54
+receiver#com.parse.ParsePushBroadcastReceiver
+ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:50:9-58:20
+	android:exported
+		ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:52:13-37
+	android:name
+		ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:51:13-64
+intent-filter#com.parse.push.intent.DELETE+com.parse.push.intent.OPEN+com.parse.push.intent.RECEIVE
+ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:53:13-57:29
+action#com.parse.push.intent.RECEIVE
+ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:54:17-72
+	android:name
+		ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:54:25-69
+action#com.parse.push.intent.DELETE
+ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:55:17-71
+	android:name
+		ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:55:25-68
+action#com.parse.push.intent.OPEN
+ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:56:17-69
+	android:name
+		ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:56:25-66
+receiver#com.parse.GcmBroadcastReceiver
+ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:59:9-69:20
+	android:permission
+		ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:61:13-73
+	android:name
+		ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:60:13-58
+intent-filter#com.example.dhiraj.todo+com.google.android.c2dm.intent.RECEIVE+com.google.android.c2dm.intent.REGISTRATION
+ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:62:13-68:29
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:63:17-81
+	android:name
+		ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:63:25-78
+action#com.google.android.c2dm.intent.REGISTRATION
+ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:64:17-86
+	android:name
+		ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:64:25-83
+category#com.example.dhiraj.todo
+ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:67:17-68
+	android:name
+		ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:67:27-65
+activity#com.example.dhiraj.todo.ForgotPassword
+ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:71:9-72:20
+	android:name
+		ADDED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml:71:19-49
 uses-sdk
 INJECTED from /home/dhiraj/AndroidStudioProjects/todoApp/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:23.0.1] /home/dhiraj/AndroidStudioProjects/todoApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/AndroidManifest.xml:20:5-43
