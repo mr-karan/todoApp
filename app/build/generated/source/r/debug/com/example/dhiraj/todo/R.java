@@ -2419,14 +2419,15 @@ containing a value of this type.
         public static final int ic_more_vert_grey600_24dp=0x7f020068;
         public static final int ic_more_vert_grey600_36dp=0x7f020069;
         public static final int ic_undobar_undo=0x7f02006a;
-        public static final int native_card_selector=0x7f02006b;
-        public static final int notification_template_icon_bg=0x7f020072;
-        public static final int pressed_background_card=0x7f02006c;
-        public static final int pressed_background_kitkat_card=0x7f02006d;
-        public static final int undobar=0x7f02006e;
-        public static final int undobar_button_focused=0x7f02006f;
-        public static final int undobar_button_pressed=0x7f020070;
-        public static final int undobar_divider=0x7f020071;
+        public static final int icon=0x7f02006b;
+        public static final int native_card_selector=0x7f02006c;
+        public static final int notification_template_icon_bg=0x7f020073;
+        public static final int pressed_background_card=0x7f02006d;
+        public static final int pressed_background_kitkat_card=0x7f02006e;
+        public static final int undobar=0x7f02006f;
+        public static final int undobar_button_focused=0x7f020070;
+        public static final int undobar_button_pressed=0x7f020071;
+        public static final int undobar_divider=0x7f020072;
     }
     public static final class id {
         public static final int action0=0x7f0d009b;
